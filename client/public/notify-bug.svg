@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#b91c1c"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#00000033"/>
+    </filter>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="30" fill="url(#bg)" filter="url(#shadow)"/>
+  <!-- Bug body -->
+  <ellipse cx="32" cy="34" rx="11" ry="13" fill="white" opacity="0.95"/>
+  <!-- Bug head -->
+  <ellipse cx="32" cy="21" rx="7" ry="5.5" fill="white" opacity="0.95"/>
+  <!-- Antennae -->
+  <line x1="27" y1="17" x2="22" y2="12" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="37" y1="17" x2="42" y2="12" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Legs left -->
+  <line x1="21" y1="29" x2="14" y2="26" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="21" y1="34" x2="14" y2="34" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="21" y1="39" x2="14" y2="42" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+  <!-- Legs right -->
+  <line x1="43" y1="29" x2="50" y2="26" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="43" y1="34" x2="50" y2="34" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="43" y1="39" x2="50" y2="42" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+  <!-- Center divider -->
+  <line x1="32" y1="22" x2="32" y2="47" stroke="#ef4444" stroke-width="1.5" opacity="0.4"/>
+</svg>

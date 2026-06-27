@@ -1,0 +1,8 @@
+node_modules
+client/node_modules
+server/node_modules
+npm-debug.log
+client/.env
+client/dist
+.git
+.gitignore

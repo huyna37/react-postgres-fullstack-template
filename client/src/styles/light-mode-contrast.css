@@ -1,0 +1,225 @@
+/**
+ * Light mode — remap pastel inline accent colors (dark-theme defaults)
+ * to readable contrast on white/pale backgrounds.
+ * Scoped to app shell: .main-content, .glass-card, .modal-content
+ */
+
+[data-theme="light"] .main-content [style*="color: #818cf8"],
+[data-theme="light"] .main-content [style*="color: '#818cf8'"],
+[data-theme="light"] .glass-card [style*="color: #818cf8"],
+[data-theme="light"] .glass-card [style*="color: '#818cf8'"],
+[data-theme="light"] .modal-content [style*="color: #818cf8"],
+[data-theme="light"] .modal-content [style*="color: '#818cf8'"],
+[data-theme="light"] .main-content [style*="color: #a5b4fc"],
+[data-theme="light"] .main-content [style*="color: '#a5b4fc'"],
+[data-theme="light"] .glass-card [style*="color: #a5b4fc"],
+[data-theme="light"] .glass-card [style*="color: '#a5b4fc'"],
+[data-theme="light"] .modal-content [style*="color: #a5b4fc"],
+[data-theme="light"] .main-content [style*="color: #60a5fa"],
+[data-theme="light"] .main-content [style*="color: '#60a5fa'"],
+[data-theme="light"] .glass-card [style*="color: #60a5fa"] {
+  color: var(--kpi-indigo) !important;
+}
+
+[data-theme="light"] .main-content [style*="color: #4ade80"],
+[data-theme="light"] .main-content [style*="color: '#4ade80'"],
+[data-theme="light"] .glass-card [style*="color: #4ade80"],
+[data-theme="light"] .glass-card [style*="color: '#4ade80'"],
+[data-theme="light"] .modal-content [style*="color: #4ade80"],
+[data-theme="light"] .main-content [style*="color: #34d399"],
+[data-theme="light"] .main-content [style*="color: '#34d399'"],
+[data-theme="light"] .glass-card [style*="color: #34d399"],
+[data-theme="light"] .glass-card [style*="color: '#34d399'"],
+[data-theme="light"] .main-content [style*="color: #6ee7b7"],
+[data-theme="light"] .glass-card [style*="color: #6ee7b7"] {
+  color: var(--kpi-green) !important;
+}
+
+[data-theme="light"] .main-content [style*="color: #fbbf24"],
+[data-theme="light"] .main-content [style*="color: '#fbbf24'"],
+[data-theme="light"] .glass-card [style*="color: #fbbf24"],
+[data-theme="light"] .glass-card [style*="color: '#fbbf24'"],
+[data-theme="light"] .modal-content [style*="color: #fbbf24"],
+[data-theme="light"] .main-content [style*="color: #fde68a"],
+[data-theme="light"] .glass-card [style*="color: #fde68a"],
+[data-theme="light"] .main-content [style*="color: #f59e0b"],
+[data-theme="light"] .glass-card [style*="color: #f59e0b"] {
+  color: var(--kpi-amber) !important;
+}
+
+[data-theme="light"] .main-content [style*="color: #f87171"],
+[data-theme="light"] .main-content [style*="color: '#f87171'"],
+[data-theme="light"] .glass-card [style*="color: #f87171"],
+[data-theme="light"] .glass-card [style*="color: '#f87171'"],
+[data-theme="light"] .main-content [style*="color: #f43f5e"],
+[data-theme="light"] .glass-card [style*="color: #f43f5e"],
+[data-theme="light"] .main-content [style*="color: #ef4444"],
+[data-theme="light"] .glass-card [style*="color: #ef4444"] {
+  color: var(--kpi-rose) !important;
+}
+
+[data-theme="light"] .main-content [style*="color: #c084fc"],
+[data-theme="light"] .main-content [style*="color: '#c084fc'"],
+[data-theme="light"] .glass-card [style*="color: #c084fc"],
+[data-theme="light"] .glass-card [style*="color: '#c084fc'"],
+[data-theme="light"] .main-content [style*="color: #d8b4fe"],
+[data-theme="light"] .glass-card [style*="color: #d8b4fe"],
+[data-theme="light"] .main-content [style*="color: #a855f7"],
+[data-theme="light"] .glass-card [style*="color: #a855f7"] {
+  color: var(--kpi-purple) !important;
+}
+
+[data-theme="light"] .main-content span[style*="rgba(251, 191, 36"],
+[data-theme="light"] .glass-card span[style*="rgba(251, 191, 36"],
+[data-theme="light"] .main-content span[style*="rgba(251,191, 36"],
+[data-theme="light"] .glass-card span[style*="rgba(251,191, 36"] {
+  color: #b45309 !important;
+}
+
+[data-theme="light"] .main-content span[style*="rgba(129, 140, 248"],
+[data-theme="light"] .glass-card span[style*="rgba(129, 140, 248"],
+[data-theme="light"] .main-content span[style*="rgba(129,140,248"] {
+  color: var(--kpi-indigo) !important;
+}
+
+[data-theme="light"] .main-content span[style*="rgba(244, 63, 94"],
+[data-theme="light"] .glass-card span[style*="rgba(244, 63, 94"],
+[data-theme="light"] .main-content span[style*="rgba(244,63,94"] {
+  color: #be123c !important;
+}
+
+[data-theme="light"] .main-content span[style*="rgba(168, 85, 247"],
+[data-theme="light"] .glass-card span[style*="rgba(168, 85, 247"] {
+  color: var(--kpi-purple) !important;
+}
+
+[data-theme="light"] .main-content span[style*="rgba(74, 222, 128"],
+[data-theme="light"] .glass-card span[style*="rgba(74, 222, 128"] {
+  color: var(--kpi-green) !important;
+}
+
+/* KPI / stat large numbers */
+[data-theme="light"] .main-content [style*="font-weight: 800"][style*="color: #"],
+[data-theme="light"] .glass-card [style*="font-weight: 800"][style*="color: #"],
+[data-theme="light"] .dashboard-main [style*="font-size: '1.35rem'"][style*="color: #"],
+[data-theme="light"] .dashboard-main [style*="fontSize: '1.35rem'"][style*="color: #"] {
+  /* covered by rules above when color is set */
+}
+
+[data-theme="light"] .dashboard-stats-meta .dashboard-stat-accent,
+[data-theme="light"] .dashboard-page .dashboard-stat-accent {
+  font-weight: 700;
+}
+
+[data-theme="light"] .dashboard-stat-accent--indigo {
+  color: var(--kpi-indigo);
+}
+
+[data-theme="light"] .dashboard-stat-accent--amber {
+  color: var(--kpi-amber);
+}
+
+[data-theme="light"] .dashboard-stat-accent--green {
+  color: var(--kpi-green);
+}
+
+[data-theme="light"] .dashboard-stat-accent--muted {
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .dashboard-ticket-key {
+  color: var(--kpi-green) !important;
+}
+
+[data-theme="light"] .dashboard-issue-badge--bug {
+  color: #dc2626 !important;
+  background: rgba(239, 68, 68, 0.1) !important;
+  border-color: rgba(220, 38, 38, 0.35) !important;
+}
+
+[data-theme="light"] .dashboard-issue-badge--default {
+  color: var(--kpi-indigo) !important;
+  background: rgba(99, 102, 241, 0.1) !important;
+  border-color: rgba(79, 70, 229, 0.3) !important;
+}
+
+[data-theme="light"] .dashboard-date--start {
+  color: var(--kpi-amber) !important;
+}
+
+[data-theme="light"] .dashboard-date--due {
+  color: var(--kpi-rose) !important;
+}
+
+[data-theme="light"] .page-kpi-value--rose {
+  color: var(--kpi-rose) !important;
+}
+
+[data-theme="light"] .page-kpi-value--amber {
+  color: var(--kpi-amber) !important;
+}
+
+[data-theme="light"] .page-kpi-value--indigo {
+  color: var(--kpi-indigo) !important;
+}
+
+[data-theme="light"] .page-kpi-value--purple {
+  color: var(--kpi-purple) !important;
+}
+
+[data-theme="light"] .page-kpi-value--orange {
+  color: var(--kpi-orange) !important;
+}
+
+[data-theme="light"] .page-kpi-value--green {
+  color: var(--kpi-green) !important;
+}
+
+[data-theme="light"] .page-kpi-label--rose {
+  color: #9f1239 !important;
+}
+
+[data-theme="light"] .page-kpi-label--amber {
+  color: #92400e !important;
+}
+
+[data-theme="light"] .page-kpi-label--indigo {
+  color: var(--kpi-indigo) !important;
+}
+
+[data-theme="light"] .page-kpi-label--purple {
+  color: #6d28d9 !important;
+}
+
+[data-theme="light"] .page-kpi-label--orange {
+  color: #c2410c !important;
+}
+
+[data-theme="light"] .page-kpi-hint {
+  font-weight: 600;
+}
+
+[data-theme="light"] .page-kpi-hint--rose {
+  color: #be123c !important;
+}
+
+[data-theme="light"] .page-kpi-hint--amber {
+  color: #b45309 !important;
+}
+
+[data-theme="light"] .page-kpi-hint--indigo {
+  color: var(--kpi-indigo) !important;
+}
+
+[data-theme="light"] .page-kpi-hint--purple {
+  color: #6d28d9 !important;
+}
+
+[data-theme="light"] .page-kpi-hint--orange {
+  color: #c2410c !important;
+}
+
+[data-theme="light"] .overdue-page .page-header-subtitle,
+[data-theme="light"] .overdue-page span.page-header-subtitle {
+  color: #475569 !important;
+}

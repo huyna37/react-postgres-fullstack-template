@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    // Formatter chính — bắt buộc để auto-format hoạt động
+    "esbenp.prettier-vscode",
+
+    // TypeScript / React — lint + type checking
+    "dbaeumer.vscode-eslint",
+
+    // Path autocomplete
+    "christian-kohler.path-intellisense"
+  ]
+}

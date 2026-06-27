@@ -1,18 +1,38 @@
-version: "3.8"
+# Jira Agent — chạy app + PostgreSQL trong Docker
+#
+# Cần file .env ở thư mục gốc (cho JIRA_*, GEMINI_*, TELEGRAM_*, v.v.).
+# Các biến DB_* trong .env sẽ bị ghi đè bên dưới để trỏ vào container db.
+#
+# Chạy: docker compose up --build
+# Truy cập: http://localhost:5000
+
 services:
-  db:
-    image: postgres
-    container_name: my_postgres
-    restart: always
-    environment:
-      POSTGRES_USER: myuser
-      POSTGRES_PASSWORD: mypassword
-      POSTGRES_DB: mydatabase
+  app:
+    build: .
+    restart: unless-stopped
     ports:
-      - "5432:5432"
+      - '5000:5000'
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USER=${DB_USER:-postgres}
+      - DB_PASSWORD=${DB_PASSWORD:-postgres}
+      - DB_NAME=${DB_NAME:-jira_agent}
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
+      POSTGRES_DB: ${DB_NAME:-jira_agent}
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
 volumes:
   postgres_data:

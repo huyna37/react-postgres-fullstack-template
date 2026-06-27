@@ -1,0 +1,780 @@
+/**
+ * Công việc quá hạn & Thiếu estimate — KPI, sidebar, ticket cards
+ * (shared .workflow-page on both screens)
+ */
+
+.workflow-page .page-kpi-value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.workflow-page .page-kpi-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.workflow-page .page-kpi-hint {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.page-kpi-card {
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.page-kpi-card--rose {
+  background: radial-gradient(circle at top left, rgba(244, 63, 94, 0.14), rgba(15, 23, 42, 0.4));
+  border: 1px solid rgba(244, 63, 94, 0.28);
+}
+
+.page-kpi-card--amber {
+  background: radial-gradient(circle at top left, rgba(251, 191, 36, 0.14), rgba(15, 23, 42, 0.4));
+  border: 1px solid rgba(251, 191, 36, 0.28);
+}
+
+.page-kpi-card--indigo {
+  background: radial-gradient(circle at top left, rgba(99, 102, 241, 0.14), rgba(15, 23, 42, 0.4));
+  border: 1px solid rgba(99, 102, 241, 0.28);
+}
+
+.page-kpi-card--purple {
+  background: radial-gradient(circle at top left, rgba(168, 85, 247, 0.14), rgba(15, 23, 42, 0.4));
+  border: 1px solid rgba(168, 85, 247, 0.28);
+}
+
+.page-kpi-card--orange {
+  background: radial-gradient(circle at top left, rgba(245, 158, 11, 0.14), rgba(15, 23, 42, 0.4));
+  border: 1px solid rgba(245, 158, 11, 0.28);
+}
+
+[data-theme="light"] .page-kpi-card--rose {
+  background: linear-gradient(145deg, #fff1f2 0%, #ffffff 65%);
+  border-color: rgba(190, 18, 60, 0.35);
+}
+
+[data-theme="light"] .page-kpi-card--amber {
+  background: linear-gradient(145deg, #fffbeb 0%, #ffffff 65%);
+  border-color: rgba(180, 83, 9, 0.35);
+}
+
+[data-theme="light"] .page-kpi-card--indigo {
+  background: linear-gradient(145deg, #eef2ff 0%, #ffffff 65%);
+  border-color: rgba(67, 56, 202, 0.35);
+}
+
+[data-theme="light"] .page-kpi-card--purple {
+  background: linear-gradient(145deg, #faf5ff 0%, #ffffff 65%);
+  border-color: rgba(109, 40, 217, 0.35);
+}
+
+[data-theme="light"] .page-kpi-card--orange {
+  background: linear-gradient(145deg, #fff7ed 0%, #ffffff 65%);
+  border-color: rgba(194, 65, 12, 0.35);
+}
+
+[data-theme="light"] .workflow-page .page-kpi-label {
+  color: #334155 !important;
+}
+
+[data-theme="light"] .workflow-page .page-kpi-hint {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .workflow-page .page-kpi-value--rose {
+  color: #be123c !important;
+}
+
+[data-theme="light"] .workflow-page .page-kpi-value--amber {
+  color: #b45309 !important;
+}
+
+[data-theme="light"] .workflow-page .page-kpi-value--indigo {
+  color: #4338ca !important;
+}
+
+[data-theme="light"] .workflow-page .page-kpi-value--purple {
+  color: #6d28d9 !important;
+}
+
+[data-theme="light"] .workflow-page .page-kpi-value--orange {
+  color: #c2410c !important;
+}
+
+/* Sidebar */
+.workflow-sidebar {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 16px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.workflow-sidebar__head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.75rem;
+}
+
+.workflow-sidebar__title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.workflow-filter-btn {
+  background: transparent;
+  border-left: 3px solid transparent;
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.8rem;
+  width: 100%;
+  cursor: pointer;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+}
+
+.workflow-filter-btn.is-active {
+  background: linear-gradient(90deg, rgba(99, 102, 241, 0.15), transparent);
+  border-left-color: var(--primary);
+  border-radius: 0 8px 8px 0;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.workflow-filter-btn.is-active--me {
+  background: linear-gradient(90deg, rgba(239, 68, 68, 0.15), transparent);
+  border-left-color: #ef4444;
+}
+
+.workflow-filter-btn.is-active--me {
+  color: var(--text-primary);
+}
+
+.workflow-filter-count {
+  font-size: 0.7rem;
+  background: var(--border-color);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.workflow-filter-count.is-active {
+  background: var(--primary);
+  color: #fff;
+}
+
+.workflow-filter-count.is-active--me {
+  background: #ef4444;
+  color: #fff;
+}
+
+.workflow-member-btn {
+  background: transparent;
+  border-left: 3px solid transparent;
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.55rem 0.75rem;
+  width: 100%;
+  cursor: pointer;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  text-align: left;
+}
+
+.workflow-member-btn.is-active {
+  background: linear-gradient(90deg, rgba(99, 102, 241, 0.15), transparent);
+  border-left-color: var(--primary);
+  border-radius: 0 8px 8px 0;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.workflow-member-count {
+  font-size: 0.65rem;
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-weight: 800;
+  background: rgba(244, 63, 94, 0.15);
+  color: #fb7185;
+  border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+.workflow-member-count.is-active {
+  background: #f43f5e;
+  color: #fff;
+  border: none;
+}
+
+[data-theme="light"] .workflow-member-count {
+  color: #be123c;
+  background: #ffe4e6;
+  border-color: #fecdd3;
+}
+
+[data-theme="light"] .workflow-member-count.is-active {
+  color: #fff;
+  background: #e11d48;
+}
+
+.workflow-project-select {
+  width: auto;
+  min-width: 140px;
+  max-width: 220px;
+  height: 32px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.workflow-tickets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 0.85rem;
+  align-items: stretch;
+}
+
+.workflow-tickets-grid > .dashboard-ticket-item.workflow-ticket-card {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Ticket cards */
+.workflow-ticket-card {
+  margin: 0;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  cursor: default;
+  padding: 0.85rem 0.9rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  border-radius: 0 10px 10px 0;
+  border: 1px solid var(--border-color);
+  border-left-width: 0;
+  height: 100%;
+  min-height: 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.workflow-ticket-card__inner {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.5rem;
+  min-width: 0;
+  min-height: 100%;
+  height: 100%;
+}
+
+.workflow-ticket-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.4rem;
+}
+
+.workflow-ticket-header__left {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.workflow-ticket-header__status {
+  flex-shrink: 0;
+  max-width: 42%;
+  text-align: right;
+}
+
+.workflow-ticket-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+  flex: 1 1 auto;
+  /* Khối title + mô tả cố định để các card cùng hàng đồng đều */
+  min-height: 6.25rem;
+}
+
+.workflow-ticket__title,
+.overdue-ticket__summary.workflow-ticket__title {
+  margin: 0;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.workflow-ticket__description {
+  margin: 0;
+  font-size: 0.74rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+[data-theme="light"] .workflow-ticket__description {
+  color: #64748b;
+}
+
+.workflow-ticket__parent {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+[data-theme="light"] .workflow-ticket__parent {
+  color: #64748b;
+}
+
+.workflow-ticket-card__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+.workflow-ticket-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.workflow-ticket-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+[data-theme="light"] .workflow-ticket-card {
+  background: #ffffff;
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.08);
+}
+
+.workflow-ticket-card--rose {
+  background: rgba(244, 63, 94, 0.04);
+}
+
+.workflow-ticket-card--amber {
+  background: rgba(251, 191, 36, 0.04);
+}
+
+.workflow-ticket-card--purple {
+  background: rgba(168, 85, 247, 0.04);
+}
+
+.workflow-ticket-card--orange {
+  background: rgba(245, 158, 11, 0.04);
+}
+
+[data-theme="light"] .workflow-ticket-card--rose {
+  background: #fffafb;
+}
+
+[data-theme="light"] .workflow-ticket-card--amber {
+  background: #fffdf5;
+}
+
+[data-theme="light"] .workflow-ticket-card--purple {
+  background: #fdfaff;
+}
+
+[data-theme="light"] .workflow-ticket-card--orange {
+  background: #fffaf5;
+}
+
+.workflow-ticket-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  border-radius: 4px 0 0 4px;
+}
+
+.workflow-ticket-bar--rose {
+  background: #f43f5e;
+  box-shadow: 0 0 8px rgba(244, 63, 94, 0.45);
+}
+
+.workflow-ticket-bar--amber {
+  background: #f59e0b;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.45);
+}
+
+.workflow-ticket-bar--purple {
+  background: #a855f7;
+  box-shadow: 0 0 8px rgba(168, 85, 247, 0.45);
+}
+
+.workflow-ticket-bar--orange {
+  background: #ea580c;
+  box-shadow: 0 0 8px rgba(234, 88, 12, 0.45);
+}
+
+[data-theme="light"] .workflow-ticket-bar--rose {
+  background: #e11d48;
+}
+
+[data-theme="light"] .workflow-ticket-bar--amber {
+  background: #d97706;
+}
+
+[data-theme="light"] .workflow-ticket-bar--purple {
+  background: #7c3aed;
+}
+
+[data-theme="light"] .workflow-ticket-bar--orange {
+  background: #ea580c;
+}
+
+.workflow-ticket-key {
+  background: var(--chip-bg);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin: 0;
+}
+
+.workflow-ticket-key--rose {
+  color: #fb7185;
+  border-color: rgba(244, 63, 94, 0.35);
+}
+
+.workflow-ticket-key--amber {
+  color: #fcd34d;
+  border-color: rgba(251, 191, 36, 0.35);
+}
+
+.workflow-ticket-key--purple {
+  color: #d8b4fe;
+  border-color: rgba(168, 85, 247, 0.35);
+}
+
+.workflow-ticket-key--orange {
+  color: #fdba74;
+  border-color: rgba(245, 158, 11, 0.35);
+}
+
+[data-theme="light"] .workflow-ticket-key--rose {
+  color: #be123c;
+  background: #fff1f2;
+  border-color: #fecdd3;
+}
+
+[data-theme="light"] .workflow-ticket-key--amber {
+  color: #b45309;
+  background: #fffbeb;
+  border-color: #fde68a;
+}
+
+[data-theme="light"] .workflow-ticket-key--purple {
+  color: #6d28d9;
+  background: #faf5ff;
+  border-color: #e9d5ff;
+}
+
+[data-theme="light"] .workflow-ticket-key--orange {
+  color: #c2410c;
+  background: #fff7ed;
+  border-color: #fed7aa;
+}
+
+.workflow-urgency-badge {
+  font-size: 0.58rem;
+  padding: 1.5px 6px;
+  border-radius: 8px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.workflow-urgency-badge--rose {
+  background: rgba(244, 63, 94, 0.18);
+  color: #fb7185;
+  border: 1px solid rgba(244, 63, 94, 0.35);
+}
+
+.workflow-urgency-badge--amber {
+  background: rgba(251, 191, 36, 0.18);
+  color: #fcd34d;
+  border: 1px solid rgba(251, 191, 36, 0.35);
+}
+
+.workflow-urgency-badge--purple {
+  background: rgba(168, 85, 247, 0.18);
+  color: #d8b4fe;
+  border: 1px solid rgba(168, 85, 247, 0.35);
+}
+
+.workflow-urgency-badge--orange {
+  background: rgba(245, 158, 11, 0.18);
+  color: #fdba74;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+
+[data-theme="light"] .workflow-urgency-badge--rose {
+  color: #9f1239;
+  background: #ffe4e6;
+  border-color: #fecdd3;
+}
+
+[data-theme="light"] .workflow-urgency-badge--amber {
+  color: #92400e;
+  background: #fef3c7;
+  border-color: #fde68a;
+}
+
+[data-theme="light"] .workflow-urgency-badge--purple {
+  color: #6d28d9;
+  background: #f3e8ff;
+  border-color: #e9d5ff;
+}
+
+[data-theme="light"] .workflow-urgency-badge--orange {
+  color: #9a3412;
+  background: #ffedd5;
+  border-color: #fed7aa;
+}
+
+.workflow-ticket-assignee-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--surface-muted);
+  padding: 0.35rem 0.45rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.workflow-ticket-creator {
+  font-size: 0.6rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+[data-theme="light"] .workflow-ticket-creator {
+  color: #475569;
+}
+
+.workflow-ticket-progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .workflow-ticket-progress-label {
+  color: #475569;
+}
+
+.workflow-issue-chip {
+  font-size: 0.58rem;
+  padding: 1.5px 5px;
+  border-radius: 3px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.workflow-issue-chip--bug {
+  background: rgba(244, 63, 94, 0.15);
+  color: #fb7185;
+  border: 1px solid rgba(244, 63, 94, 0.28);
+}
+
+.workflow-issue-chip--default {
+  background: rgba(99, 102, 241, 0.15);
+  color: #a5b4fc;
+  border: 1px solid rgba(99, 102, 241, 0.28);
+}
+
+[data-theme="light"] .workflow-issue-chip--bug {
+  color: #be123c;
+  background: #ffe4e6;
+  border-color: #fecdd3;
+}
+
+[data-theme="light"] .workflow-issue-chip--default {
+  color: #4338ca;
+  background: #eef2ff;
+  border-color: #c7d2fe;
+}
+
+.workflow-est-chip {
+  color: #fcd34d;
+  background: rgba(251, 191, 36, 0.12);
+  padding: 1px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  font-weight: 600;
+  font-size: 0.65rem;
+  white-space: nowrap;
+}
+
+.workflow-logged-chip {
+  color: #a5b4fc;
+  background: rgba(129, 140, 248, 0.12);
+  padding: 1px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(129, 140, 248, 0.25);
+  font-weight: 600;
+  font-size: 0.65rem;
+  white-space: nowrap;
+}
+
+[data-theme="light"] .workflow-est-chip {
+  color: #b45309;
+  background: #fffbeb;
+  border-color: #fde68a;
+}
+
+[data-theme="light"] .workflow-logged-chip {
+  color: #4338ca;
+  background: #eef2ff;
+  border-color: #c7d2fe;
+}
+
+.workflow-est-chip--missing {
+  color: #fb923c;
+  background: rgba(249, 115, 22, 0.12);
+  border: 1px solid rgba(249, 115, 22, 0.28);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.65rem;
+  white-space: nowrap;
+}
+
+[data-theme="light"] .workflow-est-chip--missing {
+  color: #c2410c;
+  background: #fff7ed;
+  border-color: #fed7aa;
+}
+
+.workflow-ticket-dates {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  border-top: 1px dashed var(--border-color);
+  padding-top: 0.45rem;
+}
+
+[data-theme="light"] .workflow-ticket-dates {
+  color: #475569;
+}
+
+.workflow-due-date {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+}
+
+.workflow-due-date--rose {
+  color: #fb7185;
+}
+
+.workflow-due-date--amber {
+  color: #fcd34d;
+}
+
+.workflow-due-date--purple {
+  color: #d8b4fe;
+}
+
+.workflow-due-date--orange {
+  color: #fdba74;
+}
+
+[data-theme="light"] .workflow-due-date--rose {
+  color: #be123c;
+}
+
+[data-theme="light"] .workflow-due-date--amber {
+  color: #b45309;
+}
+
+[data-theme="light"] .workflow-due-date--purple {
+  color: #6d28d9;
+}
+
+[data-theme="light"] .workflow-due-date--orange {
+  color: #c2410c;
+}
+
+.workflow-list-panel {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 16px;
+}
+
+[data-theme="light"] .workflow-page .page-header-subtitle {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .workflow-page .tab-btn:not([style*="var(--primary)"]) {
+  color: #334155;
+}
+
+[data-theme="light"] .workflow-page .tab-btn[style*="var(--text-secondary)"] {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .workflow-page label[style*="color: white"],
+[data-theme="light"] .workflow-page strong[style*="color: white"],
+[data-theme="light"] .workflow-page h3[style*="color: white"],
+[data-theme="light"] .workflow-page span[style*="color: white"]:not(.workflow-filter-count) {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="light"] .workflow-page input[style*="color: white"] {
+  color: var(--text-primary) !important;
+  background: var(--input-bg) !important;
+  border-color: var(--border-color) !important;
+}

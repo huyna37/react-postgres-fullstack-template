@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#0e7490"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#00000033"/>
+    </filter>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="30" fill="url(#bg)" filter="url(#shadow)"/>
+  <!-- Wrench shape -->
+  <g transform="translate(32,32) rotate(-45) translate(-32,-32)">
+    <!-- Wrench handle -->
+    <rect x="27" y="34" width="10" height="18" rx="3" fill="white" opacity="0.95"/>
+    <!-- Wrench head circle cutout -->
+    <circle cx="32" cy="26" r="10" fill="white" opacity="0.95"/>
+    <circle cx="32" cy="26" r="5" fill="#0e7490"/>
+    <!-- Wrench jaw notch left -->
+    <rect x="23" y="18" width="4.5" height="10" rx="1" fill="#0e7490"/>
+    <!-- Wrench jaw notch right -->
+    <rect x="36.5" y="18" width="4.5" height="10" rx="1" fill="#0e7490"/>
+  </g>
+  <!-- Small checkmark badge -->
+  <circle cx="46" cy="46" r="9" fill="#22c55e"/>
+  <polyline points="41,46 44.5,49.5 51,42.5" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
